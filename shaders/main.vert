@@ -1,3 +1,6 @@
+#define CONTAIN 0
+#define COVER   1
+
 attribute vec3  position;
 attribute vec4  color;
 attribute float size;
@@ -14,7 +17,7 @@ void main()
     // アスペクト比を求め、座標を変換
     float aspect = 1.0 / (resolution.x / resolution.y);
     vec3 a = vec3(1.);
-    if(backgroundSize == 0) {
+    if(backgroundSize == CONTAIN) {
         a = vec3(min(aspect, 1.), min(1. / aspect, 1.), 1.0);
     } else {
         a = vec3(max(aspect, 1.), max(1. / aspect, 1.), 1.0);
